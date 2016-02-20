@@ -44,8 +44,8 @@ PySnap Options
 
 ```
 usage: py_snap.py [-h] [-v] [-b BACKUP_DIR] [-c] [-f FILE_SYSTEM]
-                     [-l LOGICAL_VOLUME] [-m MOUNT] [-r RETENTION_DAYS]
-                     [-s SNAP_NAME] [--log-dir LOG_DIR]
+                  [-l LOGICAL_VOLUME] [-m MOUNT] [-r RETENTION_DAYS]
+                  [-s SNAP_NAME] [--log-dir LOG_DIR]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -63,6 +63,5 @@ optional arguments:
                         # Days to retain backups (default = 3)
   -s SNAP_NAME, --snap-name SNAP_NAME
                         Snapshot name (default=lv_data_snap)
-  --log-dir LOG_DIR     Log file location (default=/var/log/lvm_backup)
-
+  --log-dir LOG_DIR     Log file location (default=/var/log/py_snap)
 ```

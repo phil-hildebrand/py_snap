@@ -108,9 +108,9 @@ def verify_lv(logical_volume, fs):
     vtotal = int(data[1].replace('B', ''))
     vfree = int(data[2].replace('B', ''))
     avail = (vtotal - vfree) / 1024 / 1024
-    vneed = int(used * 1.2)
+    vneed = int(used * 1.1)
     log.debug(' LVM Space: %0.2fMB avail; need %0.2fMB' % (avail, vneed))
-    if (avail < vneed):
+    if avail < vneed:
         log.error('Insufficient LVM Space: %0.2fMB avail; need %0.2fMB' % (avail,
                                                                            vneed))
         exit(1)
@@ -261,6 +261,10 @@ def backsnap(backup_dir):
 
 
 ###############################################################################
+#    __Main__
+###############################################################################
+
+###############################################################################
 #    Setup Logging Options
 ###############################################################################
 
@@ -298,10 +302,7 @@ log.getLogger('').addHandler(console)
 
 log.info('******** Starting Backup *********')
 log.info('Backing up: %s to %s' % (args.logical_volume,
-
-###############################################################################
-#    __Main__
-###############################################################################
+                                      backup_file))
 
 verify_file(full_backup_dir)
 verify_file(args.mount)
